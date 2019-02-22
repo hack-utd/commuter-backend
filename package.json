@@ -1,36 +1,39 @@
 {
-    "name": "hack-utd-server",
-    "version": "0.1.0",
-    "description": "",
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/hack-utd/server"
-    },
-    "author": "Damen Hannah",
-    "scripts": {
-      "start": "npm run serve",
-      "build": "",
-      "watch-node": "nodemon dist/server.js",
-      "watch": ""
-    },
-    "dependencies": {
-      "connect-mongo": "^2.0.0",
-      "dotenv": "^4.0.0",
-      "express": "^4.16.2",
-      "express-flash": "0.0.2",
-      "express-session": "^1.15.6",
-      "express-validator": "^4.3.0",
-      "mongoose": "^4.13.11"
-    },
-    "devDependencies": {
-      "@types/connect-mongo": "^0.0.35",
-      "@types/dotenv": "^4.0.2",
-      "@types/express": "^4.11.1",
-      "@types/express-session": "^1.15.8",
-      "@types/mongodb": "^3.0.5",
-      "@types/mongoose": "^4.7.34",
-      "@types/node": "^9.4.6",
-      "nodemon": "^1.13.0",
-      "typescript": "^2.7.2"
-    }
+  "name": "hack-utd-server",
+  "version": "0.1.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hack-utd/server"
+  },
+  "author": "Damen Hannah",
+  "scripts": {
+    "start": "npm run serve",
+    "build": "",
+    "watch-node": "nodemon dist/server.js",
+    "watch": ""
+  },
+  "dependencies": {
+    "connect-mongo": "^2.0.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.6",
+    "express-validator": "^4.3.0",
+    "inversify": "^5.0.1",
+    "inversify-express-utils": "^6.3.2",
+    "mongoose": "^4.13.11",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/connect-mongo": "^0.0.35",
+    "@types/dotenv": "^4.0.2",
+    "@types/express": "^4.11.1",
+    "@types/express-session": "^1.15.8",
+    "@types/mongodb": "^3.0.5",
+    "@types/mongoose": "^4.7.34",
+    "@types/node": "^9.4.6",
+    "nodemon": "^1.13.0",
+    "typescript": "^2.7.2"
   }
+}
