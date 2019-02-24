@@ -1,5 +1,6 @@
-import * as express from "express"
+import { Request, Response } from "express"
 import Job, { JobModel } from "../models/Job";
+import { join } from "path";
 
 export class JobsController
 {
@@ -11,7 +12,7 @@ export class JobsController
      *    location: [29.28397345, 73.2387940534]
      *}
      */
-    public static async query(request: express.Request, response: express.Response)
+    public static async query(request: Request, response: Response)
     {
         let jobs: any;
         try
@@ -29,14 +30,28 @@ export class JobsController
             const lat2 = job.location[0];
             const long2 = job.location[1];
             const distance = calculateDistance(lat1, long1, lat2, long2);
-            if (distance > request.body.radius) { return false };
-            return true;
+            if (distance < request.body.radius) { return true };
+            const keySearch = request.body.keywords.some((keyword: string) =>
+            {
+                if (job.company.toLowerCase() === keyword.toLowerCase()) { return true }
+                if (job.description.toLowerCase().includes(keyword)) { return true }
+                if (job.title.toLowerCase() === keyword.toLowerCase()) { return true }
+                let test = job.keywords.some((key: string) =>
+                {
+                    if (key.toLowerCase() === keyword.toLowerCase()) { return true };
+                    return false;
+                })
+                if (test) { return true }
+                return false;
+            });
+            if (keySearch) { return true }
+            return false;
         })
 
         return response.send(jobs);
     }
 
-    public static async index(request: express.Request, response: express.Response)
+    public static async index(request: Request, response: Response)
     {
         try
         {

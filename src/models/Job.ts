@@ -7,6 +7,7 @@ export type JobModel = mongoose.Document & {
     company: string,
     location: [number],
     title: string,
+    keywords: [string],
     description: string,
     pay: number,
     applyLink: string
@@ -17,6 +18,7 @@ const jobSchema = new mongoose.Schema({
     company: String,
     location: [Number],
     title: String,
+    keywords: [String],
     description: String,
     pay: Number,
     applyLink: String

@@ -1,4 +1,4 @@
-import * as express from "express";
+import { Request, Response } from "express";
 
 export class TestController
 {
@@ -8,7 +8,7 @@ export class TestController
      * @param response
      * @param next
      */
-    public static index(request: express.Request, response: express.Response, next: express.NextFunction)
+    public static index(request: Request, response: Response)
     {
         return response.send("This is working ... JAMAL!");
     }

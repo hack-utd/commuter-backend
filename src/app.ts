@@ -6,11 +6,10 @@ import * as bodyParser from "body-parser";
 
 
 
-//const MongoStore = mongo(session)
-
 dotenv.config({ path: ".env" });
 
 import { TestController, JobsController } from "./controllers"
+import { HomesController } from "./controllers/HomesController";
 
 const app = express();
 
@@ -42,6 +41,8 @@ app.get("/test", TestController.index);
  */
 app.post("/jobs", JobsController.query);
 app.get("/jobs", JobsController.index);
+
+app.post("/address", HomesController.address)
 
 
 
